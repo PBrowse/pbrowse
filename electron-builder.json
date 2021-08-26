@@ -1,26 +1,24 @@
 {
-  "appId": "org.p.browse",
-  "productName": "PBrowse",
-  "nsis": {
-    "include": "static/installer.nsh",
-    "oneClick": false,
-    "perMachine": false,
-    "allowToChangeInstallationDirectory": false,
-    "license": "LICENSE", // <- Put your license name here.
-  },
-  "generateUpdatesFilesForAllChannels": true,
-  "asar": true,
-  "directories": {
-    "output": "builded",
-    "buildResources": "static/icons"
-  },
-  "files": ["build/**/*", "package.json", "static/**/*"],
-  "fileAssociations": [
-    {
-      "name": "Document",
-      "description": "PBrowse",
-      "role": "Viewer",
-      "ext": "html"
-    }
-  ]
+	"appId": "org.p.browse",
+	"productName": "PBrowse",
+	"nsis": {
+		"include": "static/installer.nsh",
+		"oneClick": false,
+		"perMachine": false,
+		"allowToChangeInstallationDirectory": false,
+		"license": "LICENSE"
+	},
+	"generateUpdatesFilesForAllChannels": true,
+	"asar": true,
+	"directories": {
+		"output": "builded",
+		"buildResources": "static/icons"
+	},
+	"files": ["build/**/*", "package.json", "static/**/*"],
+	"fileAssociations": [{
+		"name": "Document",
+		"description": "PBrowse",
+		"role": "Viewer",
+		"ext": "html"
+	}]
 }
