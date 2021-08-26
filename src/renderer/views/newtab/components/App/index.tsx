@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import store from '../../store';
 //import "reactweathercard/dist/index.css" // dont forget to import css 
-import WeatherCardReact from 'reactweathercard'
+
 import { ThemeProvider } from 'styled-components';
 import { Wrapper, Content, IconItem, Menu, Image, RightBar } from './style';
 import { TopSites } from '../TopSites';
