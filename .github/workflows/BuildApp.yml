@@ -32,6 +32,13 @@ jobs:
 
       - name: Get commit message
         run: echo "::set-output name=message::$(git log --no-merges -1 --oneline)"
+        
+      - name: Upload Executables
+        uses: actions/upload-artifact@v2
+        with:
+          name: pbrowse-${{matrix.os}}
+          path: |
+            builded
 
       - name: Build the app with 3 os
         run: yarn ci-build
@@ -42,3 +49,4 @@ jobs:
           MAC_CERTS_PASSWORD: ${{ secrets.mac_certs_password }}
 
           RELEASE: ${{ contains(steps.log.outputs.message, 'bump version') }}
+      
