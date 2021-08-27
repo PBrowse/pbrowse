@@ -7,6 +7,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest,ubuntu-latest,windows-latest]
 
@@ -22,7 +23,7 @@ jobs:
       # - name: Install required build toolchain
       # if: matrix.os == 'ubuntu-latest'
       # run: sudo apt-get install gcc-multilib g++-multilib
-
+      
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         env:
