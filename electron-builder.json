@@ -10,7 +10,7 @@
 	},
 	"generateUpdatesFilesForAllChannels": true,
 	"asar": true,
-  "publish": "never",
+  "publish": null,
 	"directories": {
 		"output": "builded",
 		"buildResources": "static/icons"
