@@ -1,0 +1,51 @@
+name: Building
+
+on: [push, pull_request]
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest,ubuntu-latest,windows-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js or Init
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      # - name: Install required build toolchain
+      # if: matrix.os == 'ubuntu-latest'
+      # run: sudo apt-get install gcc-multilib g++-multilib
+      
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        env:
+          ADBLOCK: true
+
+      - name: Get commit message
+        run: echo "::set-output name=message::$(git log --no-merges -1 --oneline)"
+        
+
+
+      - name: Build the app with 3 os
+        run: yarn ci-build
+        env:
+          GH_TOKEN: ${{ secrets.token }}
+
+          MAC_CERTS: ${{ secrets.mac_certs }}
+          MAC_CERTS_PASSWORD: ${{ secrets.mac_certs_password }}
+
+          RELEASE: ${{ contains(steps.log.outputs.message, 'bump version') }}
+          
+      - name: Upload Executables
+        uses: actions/upload-artifact@v2
+        with:
+          name: pbrowse-${{matrix.os}}
+          path: |
