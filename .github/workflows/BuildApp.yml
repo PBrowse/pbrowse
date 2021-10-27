@@ -49,3 +49,4 @@ jobs:
         with:
           name: pbrowse-${{matrix.os}}
           path: |
+            builded/

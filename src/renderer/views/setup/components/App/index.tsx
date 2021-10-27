@@ -280,7 +280,7 @@ const Setup = observer(() => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} autoFocus size="large" variant="contained">
-            Let's go
+            I Accept , Let's Go
           </Button>
         </DialogActions>
       </Dialog>
