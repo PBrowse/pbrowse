@@ -10,6 +10,7 @@ import {
   Shortcut,
   RightControl,
 } from './style';
+import * as Strings from '~/renderer/constants/trasnlations/en';
 import store from '../../store';
 import { ipcRenderer, remote } from 'electron';
 import { WEBUI_BASE_URL, WEBUI_URL_SUFFIX } from '~/constants/files';
@@ -103,14 +104,14 @@ export const QuickMenu = observer(() => {
           <MenuItem onClick={onUpdateClick} onClick={goToWebUIPage('version')} arrow>
             <Icon icon={ICON_FIRE}></Icon>
             <br/>
-            <MenuItemTitle>Welcome to {remote.app.name}</MenuItemTitle>
+            <MenuItemTitle>{Strings.Welcome_To} {remote.app.name}</MenuItemTitle>
           </MenuItem>
 
           <Line />
             
           <MenuItem onClick={onAlwaysClick}>
             <Icon icon={ICON_TOPMOST} />
-            <MenuItemTitle>Always on top</MenuItemTitle>
+            <MenuItemTitle>{Strings.Always_on_top}</MenuItemTitle>
             <RightControl>
               <Switch dense value={store.alwaysOnTop}></Switch>
             </RightControl>
@@ -118,36 +119,36 @@ export const QuickMenu = observer(() => {
           <Line />
           <MenuItem onClick={goToWebUIPage('newtab')}>
             <Icon icon={ICON_TAB} />
-            <MenuItemTitle>New tab</MenuItemTitle>
+            <MenuItemTitle>{Strings.New_Tab}</MenuItemTitle>
             <Shortcut>Ctrl+T</Shortcut>
           </MenuItem>
           <MenuItem onClick={onNewWindowClick}>
             <Icon icon={ICON_WINDOW} />
-            <MenuItemTitle>New window</MenuItemTitle>
+            <MenuItemTitle>{Strings.New_Window}</MenuItemTitle>
             <Shortcut>Ctrl+N</Shortcut>
           </MenuItem>
           <MenuItem onClick={onIncognitoClick}>
             <Icon icon={ICON_INCOGNITO} />
-            <MenuItemTitle>New incognito window</MenuItemTitle>
+            <MenuItemTitle>{Strings.New_INCOGNITO}</MenuItemTitle>
             <Shortcut>Ctrl+Shift+N</Shortcut>
           </MenuItem>
           <Line />
           <MenuItem onClick={goToWebUIPage('history')} arrow>
             <Icon icon={ICON_HISTORY} />
-            <MenuItemTitle>History</MenuItemTitle>
+            <MenuItemTitle>{Strings.History}</MenuItemTitle>
           </MenuItem>
           <MenuItem onClick={goToWebUIPage('bookmarks')} arrow>
             <Icon icon={ICON_BOOKMARKS} />
-            <MenuItemTitle>Bookmarks</MenuItemTitle>
+            <MenuItemTitle>{Strings.Bookmarks}</MenuItemTitle>
           </MenuItem>
           <MenuItem disabled onClick={goToWebUIPage('downloads')}>
             <Icon icon={ICON_DOWNLOAD} />
-            <MenuItemTitle>Downloads</MenuItemTitle>
+            <MenuItemTitle>{Strings.Downloads}</MenuItemTitle>
           </MenuItem>
           <Line />
           <MenuItem onClick={goToWebUIPage('settings')}>
             <Icon icon={ICON_SETTINGS} />
-            <MenuItemTitle>Settings</MenuItemTitle>
+            <MenuItemTitle>{Strings.Settings}</MenuItemTitle>
           </MenuItem>
           {/* TODO: <MenuItem onClick={goToWebUIPage('extensions')}> */}
           <MenuItem
@@ -156,17 +157,17 @@ export const QuickMenu = observer(() => {
             )}
           >
             <Icon icon={ICON_EXTENSIONS} />
-            <MenuItemTitle>Extensions</MenuItemTitle>
+            <MenuItemTitle>{Strings.Extensions}</MenuItemTitle>
           </MenuItem>
           <Line />
           <MenuItem onClick={onFindInPageClick}>
             <Icon icon={ICON_FIND} />
-            <MenuItemTitle>Find in page</MenuItemTitle>
+            <MenuItemTitle>{Strings.Find_in_Page}</MenuItemTitle>
             <Shortcut>Ctrl+F</Shortcut>
           </MenuItem>
           <MenuItem onClick={onPrintClick}>
             <Icon icon={ICON_PRINT} />
-            <MenuItemTitle>Print</MenuItemTitle>
+            <MenuItemTitle>{Strings.Print}</MenuItemTitle>
             <Shortcut>Ctrl+P</Shortcut>
           </MenuItem>
          

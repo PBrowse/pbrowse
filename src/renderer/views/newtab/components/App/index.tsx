@@ -1,26 +1,24 @@
 import * as React from 'react';
 import { observer } from 'mobx-react-lite';
-import { useState } from 'react';
 import store from '../../store';
 //import "reactweathercard/dist/index.css" // dont forget to import css 
-import WeatherCardReact from 'reactweathercard'
 import { ThemeProvider } from 'styled-components';
-import { Wrapper, Content, IconItem, Menu, Image, RightBar } from './style';
+import { Content, Image } from './style';
 import { TopSites } from '../TopSites';
+
+import * as Strings from '~/renderer/constants/trasnlations/en';
+
+import { ipcRenderer } from 'electron';
 
 import { News } from '../News';
 import { Preferences } from '../Preferences';
 
-import { WebUIStyle } from '~/renderer/mixins/default-styles';
 import { getWebUIURL } from '~/common/webui';
 
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
@@ -35,12 +33,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import HistoryIcon from '@mui/icons-material/History';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
-import { styled, alpha } from '@mui/material/styles';
 
 window.addEventListener('mousedown', () => {
   store.dashboardSettingsVisible = false;
@@ -99,7 +92,7 @@ export default observer(() => {
           >
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Speed Dial
+           {Strings.SPEED_DIAL}
           </Typography>
           <IconButton
             size="large"
@@ -168,19 +161,6 @@ export default observer(() => {
 
         </Toolbar>
       </AppBar>
-      <SpeedDial
-        ariaLabel="SpeedDial basic example"
-        sx={{ position: 'absolute', bottom: 16, right: 16 }}
-        icon={<SpeedDialIcon />}
-      >
-        {actions.map((action) => (
-          <SpeedDialAction
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-          />
-        ))}
-      </SpeedDial>
       </Content>
     </ThemeProvider>
   );

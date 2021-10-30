@@ -325,7 +325,6 @@ export class View {
 
   public async updateCredentials() {
     if (
-      !process.env.ENABLE_AUTOFILL ||
       this.browserView.webContents.isDestroyed()
     )
       return;
@@ -384,7 +383,7 @@ export class View {
 
     this.updateData();
 
-    if (process.env.ENABLE_AUTOFILL) this.updateCredentials();
+    this.updateCredentials();
 
     this.updateBookmark();
   };

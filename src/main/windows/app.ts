@@ -157,7 +157,7 @@ export class AppWindow {
     });
 
     const appInit = require('data-store')({ path: process.cwd() + '/appInit.json' });
-   
+    appInit.set('app_data',app.getPath('userData'));
     if (process.env.NODE_ENV === 'development') {
       this.webContents.openDevTools({ mode: 'detach' });
       if(typeof appInit.get('isNew') == 'undefined'){

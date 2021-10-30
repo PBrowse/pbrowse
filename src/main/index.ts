@@ -1,10 +1,9 @@
-import { ipcMain, app, webContents , Tray, nativeImage, Notification   } from 'electron';
+import { ipcMain, app, webContents , Tray, nativeImage, Notification, autoUpdater} from 'electron';
 import { ICON_SEARCH , ICONGLOBE_1 , HTTPS_ICON , HTTP_ICON , MAINICON } from '~/renderer/constants';
 import { setIpcMain } from '@wexond/rpc-electron';
-const axios = require('axios');
-const { Axios } = require('axios');
 setIpcMain(ipcMain);
 
+const language_en = require('data-store')({ path: app.getPath('userData') + '/en.json' });
 
 require('@electron/remote/main').initialize();
 
@@ -16,8 +15,11 @@ import { platform } from 'os';
 import { Application } from './application';
 
 export const isNightly = app.name === 'PBrowse';
-
+try{
 app.allowRendererProcessReuse = true;
+}catch(e){
+  console.log(e);
+}
 app.name = isNightly ? 'PBrowse' : 'PBrowse';
 
 (process.env as any)['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
@@ -37,65 +39,7 @@ ipcMain.setMaxListeners(0);
 let tray
 
 app.whenReady().then(() => {
-  // const NOTIFICATION_TITLE = 'PBrowse'
-  // const NOTIFICATION_BODY = 'PBrowse is ready'
-
-  // function showNotification () {
-  //   new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
-  // }
-  // showNotification();
-  // axios.get('https://pbrowse.preknowledgeweb.repl.co/.version')
-  // .then(function (response) {
-  //  console.log(response.data);
-  //  if(response.data == 'main3'){
-
-  //  }else{
-  //   const NOTIFICATION_TITLE = 'PBrowse'
-  //   const NOTIFICATION_BODY = 'PBrowse update found new version is ' + response.data;
-
-  //   function showNotification () {
-  //     new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
-  //   }
-  //   showNotification();
-  //   //downloadUpdate(response.data);//
-  //   // ^ this function is disabled //
-  //  }
-  // })
-  // .catch(function (error) {
-  //   const NOTIFICATION_TITLE = 'PBrowse'
-  //   const NOTIFICATION_BODY = 'Cant check for updates : Something Went Wrong or you are offline';
-
-  //   function showNotification () {
-  //     new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
-  //   }
-  //   showNotification();
-  //   console.log(error);
-  // })
-  // .then(function () {
-  //    console.log('Checking for Updates');
-  // });
-
-  function downloadUpdate(version){
-      Axios({
-        url: 'https://pbrowse.preknowledgeweb.repl.co/releases/'+version+'.exe',
-        method: 'GET',
-        responseType: 'blob', // Important
-      }).then((response) => {
-        const NOTIFICATION_TITLE = 'PBrowse'
-        const NOTIFICATION_BODY = 'Downloading ' + response.data;
-
-        function showNotification2 () {
-          new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
-        }
-        showNotification2();
-        FileDownload(response.data, 'pbrowsenewsetup.exe').then(() => {
-          const { exec } = require('child_process');
-          exec('start pbrowsenewsetup.exe', (err, stdout, stderr) => {
-            app.quit();
-          });
-        });
-      });
-  }
+  language_en.set('speed_dial','Sped Dial');
 })
 
 // app.setAsDefaultProtocolClient('http');
@@ -117,6 +61,11 @@ app.on('window-all-closed', () => {
 ipcMain.on('get-webcontents-id', (e) => {
   e.returnValue = e.sender.id;
 });
+
+ipcMain.handle('get-string', async (event, string) => {
+  const string_return = language_en.get(string);
+  return string_return.toString();
+})
 
 ipcMain.on('get-window-id', (e) => {
   e.returnValue = (e.sender as any).windowId;

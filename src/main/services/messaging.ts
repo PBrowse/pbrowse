@@ -124,21 +124,7 @@ export const runMessagingService = (appWindow: AppWindow) => {
   if (a = true) {
     // TODO: autofill
     ipcMain.on(`form-fill-show-${id}`, async (e, rect, name, value) => {
-      const items = await getFormFillMenuItems(name, value);
-
-      if (items.length) {
-        appWindow.dialogs.formFillDialog.send(`formfill-get-items`, items);
-        appWindow.dialogs.formFillDialog.inputRect = rect;
-
-        appWindow.dialogs.formFillDialog.resize(
-          items.length,
-          items.find((r) => r.subtext) != null,
-        );
-        appWindow.dialogs.formFillDialog.rearrange();
-        appWindow.dialogs.formFillDialog.show(false);
-      } else {
-        appWindow.dialogs.formFillDialog.hide();
-      }
+      
     });
 
     ipcMain.on(`form-fill-hide-${id}`, () => {

@@ -8,7 +8,7 @@ import { Button } from '~/renderer/components/Button';
 import { IStartupTab } from '~/interfaces/startup-tab';
 import { BLUE_500, ICON_CLOSE } from '~/renderer/constants';
 import store from '../../store';
-
+import * as Strings from '~/renderer/constants/trasnlations/en';
 interface Props {
   initialValue: 'continue' | 'urls' | 'empty';
   initialURLS: IStartupTab[];
@@ -98,18 +98,18 @@ class StartupControl extends React.PureComponent<Props, State> {
 
     return (
       <>
-        <Header>On Startup</Header>
+        <Header>{Strings.On_startup}</Header>
         <Row style={rowStyle} onClick={this.select('empty')}>
           <RadioButton selected={this.state.value === 'empty'} />
-          <Title style={titleStyle}>Open the New Tab page</Title>
+          <Title style={titleStyle}>{Strings.Open_the_New_Tab_page}</Title>
         </Row>
         <Row style={rowStyle} onClick={this.select('continue')}>
           <RadioButton selected={this.state.value === 'continue'} />
-          <Title style={titleStyle}>Continue where you left off</Title>
+          <Title style={titleStyle}>{Strings.Continue_where_you_left_off}</Title>
         </Row>
         <Row style={rowStyle} onClick={this.select('urls')}>
           <RadioButton selected={this.state.value === 'urls'} />
-          <Title style={titleStyle}>Open specific pages</Title>
+          <Title style={titleStyle}>{Strings.Open_spectific_pages}</Title>
         </Row>
         {this.state.value === 'urls' && (
           <div style={{ marginLeft: 36 }}>
@@ -134,7 +134,7 @@ class StartupControl extends React.PureComponent<Props, State> {
               background={BLUE_500}
               onClick={this.onAddNewPageClick}
             >
-              Add a new page
+              {Strings.add_new_page}
             </Button>
           </div>
         )}

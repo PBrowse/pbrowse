@@ -11,6 +11,8 @@ import { Addresses } from './Addresses';
 import { Header } from '../App/style';
 import { ICON_EDIT, ICON_TRASH } from '~/renderer/constants';
 
+import * as Strings from '~/renderer/constants/trasnlations/en';
+
 const onEditClick = () => {
   store.dialogContent = 'edit-address';
 };
@@ -41,11 +43,11 @@ const Menu = observer(() => {
     >
       {item && item.type === 'address' && (
         <ContextMenuItem icon={ICON_EDIT} onClick={onEditClick}>
-          Edit
+          {Strings.Edit}
         </ContextMenuItem>
       )}
       <ContextMenuItem icon={ICON_TRASH} onClick={onRemoveClick}>
-        Remove
+        {Strings.Remove}
       </ContextMenuItem>
     </ContextMenu>
   );

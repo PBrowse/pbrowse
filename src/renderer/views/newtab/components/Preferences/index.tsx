@@ -2,7 +2,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { Title, SubTitle, Back } from './style';
-
+import * as Strings from '~/renderer/constants/trasnlations/en';
 import {
   ContextMenu,
   ContextMenuItem,
@@ -89,7 +89,7 @@ export const Preferences = observer(() => {
                 : 'translateX(-100%)',
           }}
         >
-          <Title style={{ marginLeft: 20 }}>Page layout</Title>
+          <Title style={{ marginLeft: 20 }}>{Strings.PAGE_LAYOUT}</Title>
 
           <ContextMenuSeparator bigger></ContextMenuSeparator>
 
@@ -100,7 +100,7 @@ export const Preferences = observer(() => {
             iconSize={28}
             icon={ICON_WINDOW}
           > 
-            Focused
+            {Strings.PAGE_LAYOUT_Focused}
           </ContextMenuItem> 
           <ContextMenuItem
             bigger
@@ -109,7 +109,7 @@ export const Preferences = observer(() => {
             iconSize={28}
             icon={ICON_WINDOW}
           >
-            Inspirational
+            {Strings.PAGE_LAYOUT_Inspirational}
           </ContextMenuItem>
            <ContextMenuItem
             bigger
@@ -118,7 +118,7 @@ export const Preferences = observer(() => {
             iconSize={28}
             icon={ICON_WINDOW}
           >
-            Informational
+            {Strings.PAGE_LAYOUT_Inspirational}
           </ContextMenuItem> 
           <ContextMenuItem
             bigger
@@ -127,7 +127,7 @@ export const Preferences = observer(() => {
             iconSize={28}
             icon={ICON_WINDOW}
           >
-            Custom
+            {Strings.PAGE_LAYOUT_Custom}
           </ContextMenuItem>
         </div>
         <div
@@ -148,20 +148,20 @@ export const Preferences = observer(() => {
         >
           <Title>
             <Back onClick={onBackClick} icon={ICON_BACK}></Back>
-            Custom
+            {Strings.PAGE_LAYOUT_Custom}
           </Title>
           <ContextMenuSeparator bigger></ContextMenuSeparator>
           <SwitchItem name="imageVisible">Show image</SwitchItem>
           <SwitchItem disabled={!store.imageVisible} name="changeImageDaily">
-            Change the image daily
+          {Strings.PAGE_LAYOUT_Custom_Change_the_image_daily}
           </SwitchItem>
           
           <ContextMenuSeparator bigger></ContextMenuSeparator>
-          <SwitchItem name="topSitesVisible">Show top sites</SwitchItem>
-          <SwitchItem name="quickMenuVisible">Show quick menu</SwitchItem>
+          <SwitchItem name="topSitesVisible">{Strings.PAGE_LAYOUT_Show_top_sites}</SwitchItem>
+          <SwitchItem name="quickMenuVisible">{Strings.PAGE_LAYOUT_Custom_Show_quick_menu}</SwitchItem>
            <ContextMenuSeparator bigger></ContextMenuSeparator>
-          <SubTitle>News visibility:</SubTitle>
-          <SwitchItem name="newsBehavior" onChange={onNewsVisibilityChange}>Visible ?</SwitchItem>
+          <SubTitle>{Strings.PAGE_LAYOUT_Custom_News_visibility}</SubTitle>
+          <SwitchItem name="newsBehavior" onChange={onNewsVisibilityChange}>{Strings.Visible} ?</SwitchItem>
           {/*<Dropdown
             defaultValue={store.newsBehavior}
             onMouseDown={() => (store.overflowVisible = true)}

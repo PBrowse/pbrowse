@@ -94,7 +94,7 @@ export const SiteButtons = observer(() => {
 
   return (
     <>
-      {process.env.ENABLE_AUTOFILL && hasCredentials && (
+      {hasCredentials && (
         <ToolbarButton
           dense={dense}
           icon={ICON_KEY}

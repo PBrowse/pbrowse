@@ -10,6 +10,7 @@ import store from '../../store';
 import { NavigationDrawer } from '~/renderer/components/NavigationDrawer';
 import { Button } from '~/renderer/components/Button';
 import { getWebUIURL } from '~/common/webui';
+import * as Strings from '~/renderer/constants/trasnlations/en';
 import { ThemeProvider } from 'styled-components';
 import { Autofill } from '../Autofill';
 import { OnStartup } from '../Startup';
@@ -37,7 +38,6 @@ import {
 } from '~/renderer/views/bookmarks/components/App/style';
 import { Textfield } from '~/renderer/components/Textfield';
 import { WebUIStyle } from '~/renderer/mixins/default-styles';
-
 export const NormalButton = ({
   children,
   onClick,
@@ -282,16 +282,16 @@ export default observer(() => {
             store.editedSearchEngine.keyword !== store.searchEngine.keyword && (
               <>
                 <ContextMenuItem onClick={onMakeDefaultClick} icon=" ">
-                  Make default
+                  {Strings.Make_Default}
                 </ContextMenuItem>
                 <ContextMenuItem onClick={onRemoveClick} icon={ICON_TRASH}>
-                  Remove
+                  {Strings.Remove}
                 </ContextMenuItem>
               </>
             )}
           {store.editedSearchEngine && (
             <ContextMenuItem onClick={onEditClick} icon={ICON_EDIT}>
-              Edit
+              {Strings.Edit}
             </ContextMenuItem>
           )}
         </ContextMenu>
@@ -306,7 +306,7 @@ export default observer(() => {
             style={{ width: '100%' }}
             dark={store.theme['dialog.lightForeground']}
             ref={store.searchEngineInputRef}
-            label="Search engine"
+            label={Strings.Search_Engine}
           ></Textfield>
 
           <Textfield
@@ -316,7 +316,7 @@ export default observer(() => {
             }}
             dark={store.theme['dialog.lightForeground']}
             ref={store.searchEngineKeywordInputRef}
-            label="Keyword"
+            label={Strings.Keyword}
           ></Textfield>
 
           <Textfield
@@ -326,43 +326,41 @@ export default observer(() => {
             }}
             dark={store.theme['dialog.lightForeground']}
             ref={store.searchEngineUrlInputRef}
-            label="URL with %s in place of query"
+            label={Strings.Url_wit_percents}
           ></Textfield>
 
           <DialogButtons>
             <NormalButton onClick={() => (store.dialogVisible = false)}>
-              Cancel
+              {Strings.Cancel}
             </NormalButton>
             <Button onClick={onSaveClick} style={{ marginLeft: 8 }}>
-              Save
+              {Strings.Save}
             </Button>
           </DialogButtons>
           <div style={{ clear: 'both' }}></div>
         </Dialog>
         <NavigationDrawer title="Settings" search>
           <MenuItem icon={ICON_PALETTE} section="appearance">
-            Appearance
+            {Strings.Appearance}
           </MenuItem>
-          {process.env.ENABLE_AUTOFILL && (
-            <MenuItem icon={ICON_AUTOFILL} section="autofill">
-              Autofill
-            </MenuItem>
-          )}
+          <MenuItem icon={ICON_AUTOFILL} section="autofill">
+            {Strings.Autofill}
+          </MenuItem>
           <MenuItem icon={ICON_POWER} section="startup">
-            On startup
+            {Strings.On_startup}
           </MenuItem>
           <MenuItem
             icon={ICON_SEARCH}
             section="address-bar"
             subSections={['search-engines']}
           >
-            Address bar
+            {Strings.Address_bar}
           </MenuItem>
           <MenuItem icon={ICON_DOWNLOAD} section="downloads">
-            Downloads
+            {Strings.Downloads}
           </MenuItem>
           <MenuItem icon={ICON_SHIELD} section="privacy">
-            Privacy
+            {Strings.Privacy}
           </MenuItem>
           {/* <MenuItem section="permissions">Site permissions</MenuItem> */}
 
@@ -376,7 +374,7 @@ export default observer(() => {
             closeOnSelect={false}
             showSpinnerOnSelect={true}
             resetInputOnOpen
-            placeholder="> for navigation and t: for change theme remember clear text area"
+            placeholder={Strings.naviagte_quick}
             defaultInputValue="."
             onAfterOpen={() => {
               setOpen(false);
@@ -390,7 +388,7 @@ export default observer(() => {
             open={open}
           />
             {selectedSection === 'appearance' && <Appearance />}
-            {selectedSection === 'autofill' && process.env.ENABLE_AUTOFILL && (
+            {selectedSection === 'autofill' && (
               <Autofill />
             )}
             {selectedSection === 'address-bar' && <AddressBar />}

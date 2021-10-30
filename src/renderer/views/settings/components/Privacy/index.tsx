@@ -7,6 +7,7 @@ import { BLUE_500 } from '~/renderer/constants';
 import { observer } from 'mobx-react-lite';
 import { onSwitchChange } from '../../utils';
 import { Switch } from '~/renderer/components/Switch';
+import * as Strings from '~/renderer/constants/trasnlations/en';
 
 const onClearBrowsingData = () => {
   store.dialogContent = 'privacy';
@@ -18,7 +19,7 @@ const DoNotTrackToggle = observer(() => {
   return (
     <Row onClick={onSwitchChange('doNotTrack')}>
       <Title>
-        Send a &quot;Do Not Track&quot; request with your browsing traffic
+        {Strings.Send_Req_to_do_not_track}
       </Title>
       <Control>
         <Switch value={doNotTrack} />
@@ -30,13 +31,13 @@ const DoNotTrackToggle = observer(() => {
 export const Privacy = () => {
   return (
     <>
-      <Header>Privacy</Header>
+      <Header>{Strings.Privacy}</Header>
       <Button
         type="outlined"
         foreground={BLUE_500}
         onClick={onClearBrowsingData}
       >
-        Clear browsing data
+        {Strings.Clear_browsing_data}
       </Button>
       <DoNotTrackToggle />
     </>

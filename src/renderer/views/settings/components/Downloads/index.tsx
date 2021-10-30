@@ -8,7 +8,7 @@ import { ipcRenderer } from 'electron';
 import { DownloadItem } from '../DownloadItem';
 import { observer } from 'mobx-react-lite';
 import { NormalButton } from '../App';
-
+import * as Strings from '~/renderer/constants/trasnlations/en';
 const downloadssss = require('/downloads.json');
 const downloads: IDownloadItem[] = Array.from(downloadssss.downloads);;
 
@@ -19,7 +19,7 @@ const AskToggle = observer(() => {
 
   return (
     <Row onClick={onSwitchChange('downloadsDialog')}>
-      <Title>Ask where to save each file before downloading</Title>
+      <Title>{Strings.Ask_Download}</Title>
       <Control>
         <Switch value={downloadsDialog} />
       </Control>
@@ -35,12 +35,12 @@ const Location = observer(() => {
   return (
     <Row>
       <div>
-        <Title>Location</Title>
+        <Title>{Strings.Location}</Title>
         <SecondaryText>{store.settings.downloadsPath}</SecondaryText>
       </div>
 
       <Control>
-        <NormalButton onClick={onChangeClick}>Change Location</NormalButton>
+        <NormalButton onClick={onChangeClick}>{Strings.Change_Location}</NormalButton>
       </Control>
     </Row>
   );

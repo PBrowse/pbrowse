@@ -8,6 +8,8 @@ import { onSwitchChange } from '../../utils';
 import { observer } from 'mobx-react-lite';
 import { TopBarVariant } from '~/interfaces';
 
+import * as Strings from '~/renderer/constants/trasnlations/en';
+
 const onThemeChange = (value: string) => {
   if (value === 'auto') {
     store.settings.themeAuto = true;
@@ -25,13 +27,13 @@ const ThemeVariant = observer(() => {
 
   return (
     <Row>
-      <Title>Theme variant</Title>
+      <Title>{Strings.Theme_variants}</Title>
       <Control>
         <Dropdown
           defaultValue={store.settings.themeAuto ? 'auto' : defaultValue}
           onChange={onThemeChange}
         >
-          <Dropdown.Item value="auto">Auto</Dropdown.Item>
+          <Dropdown.Item value="auto">{Strings.Auto}</Dropdown.Item>
           <Dropdown.Item value="wexond-light">Light</Dropdown.Item>
           <Dropdown.Item value="wexond-dark">Dark</Dropdown.Item>
           <Dropdown.Item value="wexond-blue">Blue</Dropdown.Item>

@@ -16,7 +16,7 @@ import { StyledAddressBar, InputContainer, Input, Text } from './style';
 import { ICON_SEARCH , ICONGLOBE_1 , HTTPS_ICON , HTTP_ICON , MAINICON } from '~/renderer/constants';
 import { SiteButtons } from '../SiteButtons';
 import { DEFAULT_TITLEBAR_HEIGHT } from '~/constants/design';
-
+import * as Strings from '~/renderer/constants/trasnlations/en';
 let mouseUpped = false;
 
 const onMouseDown = (e: React.MouseEvent<HTMLInputElement>) => {
@@ -144,7 +144,7 @@ export const AddressBar = observer(() => {
      {store.addressbarValue.startsWith('https') && (
       <ToolbarButton
         toggled={false}
-        alt="Secure Website"
+        alt={Strings.Secure_web}
         icon={HTTPS_ICON}
         onClick={onICCL}
         size={16}
@@ -156,7 +156,7 @@ export const AddressBar = observer(() => {
       <ToolbarButton
         toggled={false}
         icon={HTTP_ICON}
-        alt="Unsecure Website theese types of Website can steal your data"
+        alt={Strings.unsecure}
         size={16}
         onClick={onICCL}
         dense
@@ -171,7 +171,7 @@ export const AddressBar = observer(() => {
         toggled={false}
         icon={MAINICON}
         onClick={onICCL}
-        alt="Secure PBrowse Page"
+        alt={Strings.Secure_web}
         size={16}
         dense
         iconStyle={{ transform: 'scale(-1,1)' }}
@@ -189,7 +189,7 @@ export const AddressBar = observer(() => {
           onFocus={onFocus}
           onMouseUp={onMouseUp}
           onChange={onChange}
-          placeholder="Search or type a URL"
+          placeholder={Strings.Search_or_type}
           visible={!store.addressbarTextVisible || store.addressbarValue === ''}
           value={store.addressbarValue}
         ></Input>

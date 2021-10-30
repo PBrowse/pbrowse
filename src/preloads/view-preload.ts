@@ -94,10 +94,9 @@ ipcRenderer.on('scroll-touch-end', () => {
   resetCounters();
 });
 
-if (process.env.ENABLE_AUTOFILL) {
   window.addEventListener('load', AutoComplete.loadForms);
   window.addEventListener('mousedown', AutoComplete.onWindowMouseDown);
-}
+
 
 const postMsg = (data: any, res: any) => {
   window.postMessage(
