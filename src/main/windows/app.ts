@@ -7,6 +7,14 @@ import { runMessagingService } from '../services';
 import { Application } from '../application';
 import { isNightly } from '..';
 import { ViewManager } from '../view-manager';
+const dev_config = require('data-store')({ path: process.cwd() + '/devConfig.json' });
+
+if(dev_config.get('fullscreen') == undefined){
+  dev_config.set('fullscreen',false);
+}
+if(dev_config.get('url_open') == undefined){
+  dev_config.set('url_open',"no");
+}
 
 export class AppWindow {
   public win: BrowserWindow;
@@ -16,12 +24,14 @@ export class AppWindow {
   public incognito: boolean;
 
   public constructor(incognito: boolean) {
+
     this.win = new BrowserWindow({
       frame: false,
       minWidth: 400,
       minHeight: 450,
       width: 900,
       height: 700,
+      fullscreen: dev_config.get('fullscreen'),
       titleBarStyle: 'hiddenInset',
       backgroundColor: '#ffffff',
       webPreferences: {
@@ -161,16 +171,34 @@ export class AppWindow {
     if (process.env.NODE_ENV === 'development') {
       this.webContents.openDevTools({ mode: 'detach' });
       if(typeof appInit.get('isNew') == 'undefined'){
-        this.win.loadURL('http://localhost:4444/setup.html');
+        if(dev_config.get('url_open') !== "no"){
+          this.win.loadURL(dev_config.get('url_open'));
+        }else{
+          this.win.loadURL("http://localhost:4444/setup.html");
+        }
       }else{
-        this.win.loadURL('http://localhost:4444/app.html');
+        if(dev_config.get('url_open') !== "no"){
+          this.win.loadURL(dev_config.get('url_open'));
+        }else{
+          this.win.loadURL("http://localhost:4444/app.html");
+        }
       }
       
     } else {
       if(typeof appInit.get('isNew') == 'undefined'){
-        this.win.loadURL(join('file://', app.getAppPath(), 'build/setup.html'));
+        //this.win.loadURL();
+        if(dev_config.get('url_open') !== "no"){
+          this.win.loadURL(dev_config.get('url_open'));
+        }else{
+          this.win.loadURL(join('file://', app.getAppPath(), 'build/setup.html'));
+        }
       }else{
-        this.win.loadURL(join('file://', app.getAppPath(), 'build/app.html'));
+        // this.win.loadURL(join('file://', app.getAppPath(), 'build/app.html'));
+        if(dev_config.get('url_open') !== "no"){
+          this.win.loadURL(dev_config.get('url_open'));
+        }else{
+          this.win.loadURL(join('file://', app.getAppPath(), 'build/app.html'));
+        }
       }
       
     }
