@@ -1,5 +1,6 @@
 import { ISettings } from '~/interfaces';
-import { remote, app } from 'electron';
+import * as remote from '@electron/remote/main';
+import { app } from 'electron';
 
 export const DEFAULT_SEARCH_ENGINES = [
   {
@@ -61,8 +62,8 @@ export const DEFAULT_SETTINGS: ISettings = {
   warnOnQuit: true,
   version: 2,
   downloadsDialog: true,
-  downloadsPath: remote
-    ? remote.app.getPath('downloads')
+  downloadsPath: app
+    ? app.getPath('downloads')
     : app
     ? app.getPath('downloads')
     : '',

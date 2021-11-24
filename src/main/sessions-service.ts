@@ -260,7 +260,12 @@ export class SessionsService {
 
       downloadsDialog()?.send('download-started', downloadItem);
       window.send('download-started', downloadItem);
-
+      ipcMain.on(`cancel-download-${id}`, (event) => {
+        item.cancel();
+      });
+      ipcMain.on(`pause-download-${id}`, (event) => {
+        item.pause();
+      });
       item.on('updated', (event, state) => {
         if (state === 'interrupted') {
           console.log('Download is interrupted but can be resumed');

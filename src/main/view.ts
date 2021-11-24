@@ -59,13 +59,12 @@ export class View {
     this.browserView = new BrowserView({
       webPreferences: {
         preload: `${app.getAppPath()}/build/view-preload.bundle.js`,
-        nodeIntegration: false,
-        contextIsolation: true,
+        nodeIntegration: true,
+        contextIsolation: false,
         sandbox: true,
-        enableRemoteModule: false,
+        enableRemoteModule: true,
         partition: incognito ? 'view_incognito' : 'persist:view',
         plugins: true,
-        nativeWindowOpen: true,
         webSecurity: true,
         javascript: true,
         worldSafeExecuteJavaScript: false,

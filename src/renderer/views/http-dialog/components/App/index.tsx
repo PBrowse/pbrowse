@@ -10,16 +10,24 @@ import { UIStyle } from '~/renderer/mixins/default-styles';
 
 export const App = observer(() => {
   ipcRenderer.send(`height-${store.id}`, 12000);
-  function checktoken(){
-    var value = document.getElementById("tokenid").value ;
-    alert(value);
-  }
-  return (
-    <ThemeProvider theme={{ ...store.theme }}>
-      <StyledApp style={{ maxHeight: store.maxHeight }} visible={store.visible}>
-        <UIStyle />
-          <h4>Work in Progress</h4>
-      </StyledApp>
-    </ThemeProvider>
-  );
+  const [username , setUsername] = React.useState('');
+  const [insider , setinsider] = React.useState('');
+  (async () => {
+    setUsername(await ipcRenderer.invoke('ipc-userinfo',"name"));
+    var ins = await ipcRenderer.invoke('ipc-userinfo',"insider");
+    if(ins == false){
+      setinsider("You cant use this build");
+    }else{
+      setinsider("You can use this build");
+    }
+  })();
+    return (
+      <ThemeProvider theme={{ ...store.theme }}>
+        <StyledApp style={{ maxHeight: store.maxHeight }} visible={store.visible}>
+          <UIStyle />
+            <h4>Hi : {username.toString()}</h4>
+            {insider.toString()}
+        </StyledApp>
+      </ThemeProvider>
+    );
 });

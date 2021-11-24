@@ -13,19 +13,20 @@ import {
 } from './style';
 import { IDownloadItem } from '~/interfaces';
 import prettyBytes = require('pretty-bytes');
-import { shell } from 'electron';
-
+import { shell , ipcRenderer } from 'electron';
+import Button from '@mui/material/Button';
+import FileOpenIcon from '@mui/icons-material/FileOpen';
+import CloseIcon from '@mui/icons-material/Close';
 const onClick = (item: IDownloadItem) => () => {
   if (item.completed) {
     shell.openPath(item.savePath);
   }
 };
 
-const onMoreClick = (item: IDownloadItem) => (
-  e: React.MouseEvent<HTMLDivElement>,
-) => {
-  e.stopPropagation();
-};
+const onMoreClick = (item: IDownloadItem) => () =>{
+  console.log(item.id);
+  ipcRenderer.send('cancel-download-'+item.id);
+}
 
 export const DownloadItem = observer(({ item }: { item: IDownloadItem }) => {
   let received = prettyBytes(item.receivedBytes);
@@ -38,7 +39,7 @@ export const DownloadItem = observer(({ item }: { item: IDownloadItem }) => {
   }
 
   return (
-    <StyledDownloadItem onClick={onClick(item)}>
+    <StyledDownloadItem>
       <Icon></Icon>
       <Info>
         <Title>{item.fileName}</Title>
@@ -56,7 +57,8 @@ export const DownloadItem = observer(({ item }: { item: IDownloadItem }) => {
         )}
       </Info>
       <Separator></Separator>
-      <MoreButton onClick={onMoreClick(item)}></MoreButton>
+      <Button variant="contained" onClick={onClick(item)}><FileOpenIcon/></Button>
+      <Button variant="contained" onClick={onMoreClick(item)}><CloseIcon/></Button>
     </StyledDownloadItem>
   );
 });

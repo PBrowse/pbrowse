@@ -26,12 +26,11 @@ export class AppWindow {
   public constructor(incognito: boolean) {
 
     this.win = new BrowserWindow({
-      frame: false,
+      frame: true,
       minWidth: 400,
       minHeight: 450,
       width: 900,
       height: 700,
-      fullscreen: dev_config.get('fullscreen'),
       titleBarStyle: 'hiddenInset',
       backgroundColor: '#ffffff',
       webPreferences: {
@@ -49,6 +48,10 @@ export class AppWindow {
         `static/${isNightly ? 'nightly-icons' : 'icons'}/icon.png`,
       ),
       show: false,
+    });
+
+    this.win.webContents.on("did-fail-load", (event, errorCode) => {
+      alert("WebView Failed to Load Please Report this BUG ErrCode:"+errorCode);
     });
 
     this.incognito = incognito;
@@ -170,7 +173,7 @@ export class AppWindow {
     appInit.set('app_data',app.getPath('userData'));
     if (process.env.NODE_ENV === 'development') {
       this.webContents.openDevTools({ mode: 'detach' });
-      if(typeof appInit.get('isNew') == 'undefined'){
+      if(typeof appInit.get('welcome') == 'undefined'){
         if(dev_config.get('url_open') !== "no"){
           this.win.loadURL(dev_config.get('url_open'));
         }else{
@@ -264,7 +267,7 @@ export class AppWindow {
     this.win.setTitle(
       selected.title.trim() === ''
         ? app.name
-        : `${selected.title} - ${app.name}`,
+        : `${selected.title} - PBrowse Insider`,
     );
   }
 }

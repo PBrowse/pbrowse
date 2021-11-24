@@ -9,7 +9,7 @@ import { ipcRenderer } from 'electron';
 import { UIStyle } from '~/renderer/mixins/default-styles';
 
 export const App = observer(() => {
-  const height = 8 + Math.min(8, store.downloads.length) * (64 + 8);
+  const height = 18 + Math.min(18, store.downloads.length) * (64 + 18);
   ipcRenderer.send(`height-${store.id}`, height);
 
   return (

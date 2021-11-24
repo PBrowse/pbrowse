@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import * as React from 'react';
-import { ipcRenderer, remote } from 'electron';
-
+import { ipcRenderer } from 'electron';
+import * as remote from '@electron/remote';
 import store from '../../store';
 import { Tabbar } from '../Tabbar';
 import { platform } from 'os';
@@ -36,7 +36,17 @@ const onICCL = async (e: React.MouseEvent<HTMLDivElement>) => {
 const { left, bottom } = e.currentTarget.getBoundingClientRect();
 ipcRenderer.send(`show-http-dialog-${store.windowId}`, left, bottom);
 };
-
+/* <WindowsControls
+            style={{
+              height: store.isCompact ? '100%' : 32,
+              WebkitAppRegion: 'no-drag',
+              marginLeft: 8,
+            }}
+            onClose={onCloseClick}
+            onMinimize={onMinimizeClick}
+            onMaximize={onMaximizeClick}
+            dark={store.theme['toolbar.lightForeground']}
+          /> */
 export const Titlebar = observer(() => {
   return (
     <StyledTitlebar
@@ -66,17 +76,7 @@ export const Titlebar = observer(() => {
             onMouseUp={onFullscreenExit}
             theme={store.theme}
           />
-          : <WindowsControls
-            style={{
-              height: store.isCompact ? '100%' : 32,
-              WebkitAppRegion: 'no-drag',
-              marginLeft: 8,
-            }}
-            onClose={onCloseClick}
-            onMinimize={onMinimizeClick}
-            onMaximize={onMaximizeClick}
-            dark={store.theme['toolbar.lightForeground']}
-          />
+          : <p></p>
       )}
     </StyledTitlebar>
   );

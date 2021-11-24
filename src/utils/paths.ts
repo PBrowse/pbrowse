@@ -1,11 +1,12 @@
 import { resolve } from 'path';
-import { remote, app } from 'electron';
+import { app } from 'electron';
+import * as remote from '@electron/remote/main';
 
 export const getPath = (...relativePaths: string[]) => {
   let path: string;
 
-  if (remote) {
-    path = remote.app.getPath('userData');
+  if (app) {
+    path = app.getPath('userData');
   } else if (app) {
     path = app.getPath('userData');
   } else {
@@ -14,3 +15,4 @@ export const getPath = (...relativePaths: string[]) => {
 
   return resolve(path, ...relativePaths).replace(/\\/g, '/');
 };
+//

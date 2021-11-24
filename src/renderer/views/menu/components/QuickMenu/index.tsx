@@ -12,7 +12,8 @@ import {
 } from './style';
 import * as Strings from '~/renderer/constants/trasnlations/en';
 import store from '../../store';
-import { ipcRenderer, remote } from 'electron';
+import { ipcRenderer } from 'electron';
+import * as remote from '@electron/remote';
 import { WEBUI_BASE_URL, WEBUI_URL_SUFFIX } from '~/constants/files';
 import { Switch } from '~/renderer/components/Switch';
 import {

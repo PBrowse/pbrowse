@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { BLUE_500, ICON_PAGE, ICON_MORE } from '~/renderer/constants';
 import { centerIcon } from '~/renderer/mixins';
 import { ITheme } from '~/interfaces';
-
+import CloseIcon from '@mui/icons-material/Close';
 export const StyledDownloadItem = styled.div`
   height: 64px;
   background-color: rgba(255, 255, 255, 0.04);
@@ -91,7 +91,7 @@ export const MoreButton = styled.div`
   width: 36px;
   height: 36px;
   ${centerIcon(20)};
-  background-image: url(${ICON_MORE});
+  background-image: url(${CloseIcon});
 
   opacity: 0.54;
   margin-right: 8px;
