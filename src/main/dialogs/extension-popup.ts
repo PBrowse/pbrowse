@@ -35,7 +35,7 @@ export const showExtensionDialog = (
     height = h;
     dialog.rearrange();
   });
-
+  //(dialog.browserView.webContents)
   dialog.browserView.webContents.on(
     'will-attach-webview',
     (e, webPreferences, params) => {

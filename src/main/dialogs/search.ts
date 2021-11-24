@@ -41,6 +41,7 @@ export class SearchDialog extends PersistentDialog {
     });
 
     ipcMain.on(`addressbar-update-input-${this.id}`, (e, data) => {
+      //(dialog.browserView.webContents)
       this.browserWindow.webContents.send('addressbar-update-input', data);
     });
   }

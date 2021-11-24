@@ -7,7 +7,8 @@ setIpcMain(ipcMain);
 
 const language_en = require('data-store')({ path: app.getPath('userData') + '/en.json' });
 
-require('@electron/remote/main').initialize();
+require("@electron/remote/main").initialize()
+//(webContents)
 
 if (process.env.NODE_ENV === 'development') {
   require('source-map-support').install();

@@ -1,7 +1,7 @@
 import { BrowserWindow, app, dialog } from 'electron';
 import { writeFileSync, promises } from 'fs';
 import { resolve, join } from 'path';
-
+//const remoteMain = require("@electron/remote/main")
 import { getPath } from '~/utils';
 import { runMessagingService } from '../services';
 import { Application } from '../application';
@@ -39,7 +39,6 @@ export class AppWindow {
         nodeIntegration: true,
         contextIsolation: false,
         javascript: true,
-        // TODO: get rid of the remote module in renderers
         enableRemoteModule: true,
         worldSafeExecuteJavaScript: false,
       },
@@ -49,7 +48,7 @@ export class AppWindow {
       ),
       show: false,
     });
-
+    //remoteMain.enable(this.win.webContents)
     this.win.webContents.on("did-fail-load", (event, errorCode) => {
       alert("WebView Failed to Load Please Report this BUG ErrCode:"+errorCode);
     });

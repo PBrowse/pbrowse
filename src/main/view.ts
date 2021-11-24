@@ -71,6 +71,8 @@ export class View {
       },
     });
 
+    //(this.browserView.webContents)
+
     this.incognito = incognito;
 
     this.webContents.userAgent = getUserAgentForURL(

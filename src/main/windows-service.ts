@@ -70,4 +70,5 @@ export class WindowsService {
       appWindow.win.webContents.send(channel, ...args),
     );
   }
+  //(appWindow.win.webContents);
 }

@@ -55,7 +55,7 @@ export class PersistentDialog {
         ...webPreferences,
       },
     });
-
+    //(this.browserView.webContents)
     this.bounds = { ...this.bounds, ...bounds };
     this.hideTimeout = hideTimeout;
     this.name = name;
@@ -106,6 +106,7 @@ export class PersistentDialog {
   }
 
   public show(browserWindow: BrowserWindow, focus = true, waitForLoad = true) {
+    //(this.browserView.webContents)
     return new Promise((resolve) => {
       this.browserWindow = browserWindow;
 
