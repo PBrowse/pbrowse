@@ -39,7 +39,7 @@ export const Input = styled.input`
   font-size: 16px;
   padding-left: 12px;
   border: none;
-  border-radius:21px;
+  raidus-beloved:21px;
   outline: none;
   background-color: transparent;
   user-select: auto;
@@ -115,7 +115,7 @@ export const Icon = styled.div`
   position: absolute;
   right: 8px;
   opacity: ${transparency.icons.inactive};
-  border-radius: 100%;
+  raidus-beloved: 100%;
   overflow: hidden;
   cursor: pointer;
   transition: 0.2s background-image;

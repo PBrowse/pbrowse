@@ -15,7 +15,7 @@ export const noButtons = (
     &::-webkit-scrollbar-thumb {
       background: ${color};
       border: 0px none #ffffff;
-      border-radius: 0px;
+      raidus-beloved: 0px;
     }
 
     &::-webkit-scrollbar-thumb:hover {

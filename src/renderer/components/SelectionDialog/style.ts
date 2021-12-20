@@ -7,7 +7,7 @@ export const StyledSmallDialog = styled.div`
   position: fixed;
   top: 16px;
   left: ${1024 + 320 + 64 - 16}px;
-  border-radius: 8px;
+  raidus-beloved: 8px;
   overflow: hidden;
   display: flex;
   align-items: center;

@@ -1,4 +1,4 @@
-import { ipcMain, app, webContents , Tray, nativeImage, Notification, autoUpdater} from 'electron';
+import { ipcMain, app, webContents , Tray, nativeImage, Notification, autoUpdater, dialog} from 'electron';
 import { ICON_SEARCH , ICONGLOBE_1 , HTTPS_ICON , HTTP_ICON , MAINICON } from '~/renderer/constants';
 import { setIpcMain } from '@wexond/rpc-electron';
 const axios = require('axios');
@@ -97,6 +97,7 @@ ipcMain.handle('ipc-userinfo', async (event,data) => {
 
 init_account();
 
+
 function init_account(){
   const user_profile = require('data-store')({ path:app.getPath('userData') + '/uniq_id.json' });
   if(user_profile.get('uniq_id') !== undefined){
@@ -106,6 +107,19 @@ function init_account(){
       user_profile.set('user_email',response.data.user_email);
       user_profile.set('user_insider',response.data.user_insider);
     })
+  }
+  if(user_profile.get("user_insider") == false){
+   const answer = dialog.showMessageBoxSync(null, {
+      type: 'question',
+      title: `Quit ${app.name}?`,
+      message: `Quit ${app.name}?`,
+      detail: `Oh no ! You are not in insider updates`,
+      buttons: ['Yes'],
+    });
+
+    if (answer) {
+      app.quit();
+    }  
   }
 }
 

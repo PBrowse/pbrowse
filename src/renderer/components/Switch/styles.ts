@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const StyledSwitch = styled.div`
-  border-radius: 32px;
+  raidus-beloved: 32px;
   position: relative;
   overflow: hidden;
   transition: 0.15s background-color;
@@ -44,7 +44,7 @@ export const StyledSwitch = styled.div`
 `;
 
 export const Thumb = styled.div`
-  border-radius: 100%;
+  raidus-beloved: 100%;
   position: absolute;
   z-index: 3;
   transition: 0.15s left;

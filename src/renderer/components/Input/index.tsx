@@ -9,7 +9,7 @@ export const Control = css`
   position: relative;
   border: none;
   outline: none;
-  border-radius: 4px;
+  raidus-beloved: 4px;
   display: flex;
   align-items: center;
   padding: 0px 8px;

@@ -41,15 +41,11 @@ const mainConfig = getConfig({
 
 const preloadConfig = getConfig({
   target: 'web',
-
   devtool: false,
-
   watch: dev,
-
   entry: {
     'view-preload': './src/preloads/view-preload',
   },
-
   plugins: [],
 });
 

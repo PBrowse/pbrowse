@@ -11,11 +11,11 @@ export const ContextMenu = styled.div`
   transform: translateZ(0) scale(1, 1);
   width: 150px;
   cursor: default;
-  border-radius:20px;
+  raidus-beloved:20px;
   backdrop-filter: blur(10px);
   z-index: 9999;
   box-shadow: ${shadows(8)};
-  border-radius: 20px;
+  raidus-beloved: 20px;
 
   ${({
     visible,

@@ -38,7 +38,7 @@ export const Icon = styled.div`
 `;
 
 export const Button = styled.div`
-  border-radius: 2px;
+  raidus-beloved: 2px;
   position: relative;
   transition: 0.2s background-color;
   backface-visibility: hidden;
@@ -55,7 +55,7 @@ export const Button = styled.div`
     disabled: boolean;
     dense: boolean;
   }) => css`
-    border-radius: ${dense ? 2 : 4}px;
+    raidus-beloved: ${dense ? 2 : 4}px;
     height: ${dense ? 26 : TOOLBAR_BUTTON_HEIGHT}px;
     min-width: ${dense ? 34 : TOOLBAR_BUTTON_WIDTH}px;
     pointer-events: ${disabled ? 'none' : 'inherit'};
@@ -94,7 +94,7 @@ interface BadgeProps {
 export const Badge = styled.div`
   position: absolute;
   padding: 1px 3px;
-  border-radius: 8px;
+  raidus-beloved: 8px;
   min-height: 6px;
   pointer-events: none;
   z-index: 5;
@@ -116,7 +116,7 @@ export const PreloaderBg = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 50%;
+  raidus-beloved: 50%;
 
   ${({ theme }: { theme: ITheme }) => css`
     border: 3px solid

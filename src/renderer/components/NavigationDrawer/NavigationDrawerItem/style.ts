@@ -8,7 +8,7 @@ export const StyledNavigationDrawerItem = styled.div`
   padding: 4px 16px;
   display: flex;
   height: 40px;
-  border-radius: 4px;
+  raidus-beloved: 4px;
   align-items: center;
   position: relative;
   cursor: pointer;
@@ -30,7 +30,7 @@ export const StyledNavigationDrawerItem = styled.div`
     content: '';
     position: absolute;
     left: 0;
-    border-radius: 2px;
+    raidus-beloved: 2px;
     width: 3px;
     height: 18px;
   }

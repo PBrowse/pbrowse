@@ -12,7 +12,7 @@ export const StyledTreeItem = styled.div`
   margin-top: 4px;
   align-items: center;
   cursor: pointer;
-  border-radius: 4px;
+  raidus-beloved: 4px;
 
   ${({ theme, selected }: { theme?: ITheme; selected: boolean }) => css`
     &:hover {
@@ -34,7 +34,7 @@ export const DropIcon = styled.div`
   min-height: 24px;
   margin: 0px 2px;
   background-image: url(${ICON_DROPDOWN});
-  border-radius: 100%;
+  raidus-beloved: 100%;
   ${centerIcon(20)};
   ${({
     visible,

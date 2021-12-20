@@ -9,7 +9,7 @@ export const StyledApp = styled.div`
   margin: 16px;
   padding: 16px;
   box-shadow: ${DIALOG_BOX_SHADOW};
-  border-radius: ${DIALOG_BORDER_RADIUS}px;
+  raidus-beloved: ${DIALOG_BORDER_RADIUS}px;
   overflow: hidden;
   position: relative;
 

@@ -49,7 +49,7 @@ export const SecondaryText = styled.div`
 `;
 
 export const IconButton = styled.div`
-  border-radius: 4px;
+  raidus-beloved: 4px;
   cursor: pointer;
   width: 38px;
   height: 38px;

@@ -24,7 +24,7 @@ export const Dialog = styled.div`
   height: fit-content;
   position: fixed;
   background-color: #fff;
-  border-radius: 8px;
+  raidus-beloved: 8px;
   padding-bottom: 8px;
   transition: 0.15s transform ${EASING_FUNCTION};
   ${robotoRegular()};

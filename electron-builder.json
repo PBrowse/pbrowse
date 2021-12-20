@@ -1,26 +1,33 @@
-
 {
-"appId": "org.p.browse",
-"productName": "PBrowse",
-"nsis": {
-  "include": "static/installer.nsh",
-  "oneClick": false,
-  "perMachine": false,
-  "allowToChangeInstallationDirectory": false,
-  "license": "LICENSE"
-},
-"generateUpdatesFilesForAllChannels": true,
-"asar": true,
-"publish": null,
-"directories": {
-  "output": "builded",
-  "buildResources": "static/icons"
-},
-"files": ["build/**/*", "package.json", "static/**/*"],
-"fileAssociations": [{
-  "name": "Document",
-  "description": "PBrowse",
-  "role": "Viewer",
-  "ext": "html"
-}]
+  "appId": "org.p.browse",
+  "productName": "PBrowse",
+  "nsis": {
+    "include": "static/installer.nsh",
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": false,
+    "license": "LICENSE"
+  },
+  "win": {
+    "target": "msi",
+    "icon": "static/icons/icon.ico",
+    "legalTrademarks": "PreknowledgeInc",
+    "publisherName":"PreknowledgeInc",
+    "certificateFile":"certs/cert.pfx",
+    "certificatePassword":"my_passowrd"
+  },
+  "generateUpdatesFilesForAllChannels": true,
+  "asar": true,
+  "publish": null,
+  "directories": {
+    "output": "dist_build",
+    "buildResources": "static/icons"
+  },
+  "files": ["build/**/*", "package.json", "static/**/*"],
+  "fileAssociations": [{
+    "name": "Document",
+    "description": "PBrowse",
+    "role": "Viewer",
+    "ext": "html"
+  }]
 }

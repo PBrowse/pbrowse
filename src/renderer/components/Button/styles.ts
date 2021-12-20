@@ -15,7 +15,7 @@ export const StyledButton = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 9px;
+  raidus-beloved: 9px;
   position: relative;
   cursor: pointer;
 

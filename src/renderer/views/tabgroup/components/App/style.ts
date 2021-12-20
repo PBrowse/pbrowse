@@ -34,7 +34,7 @@ export const Color = styled.div`
   min-width: 16px;
   height: 16px;
   cursor: pointer;
-  border-radius: 2px;
+  raidus-beloved: 2px;
   margin-right: 4px;
   margin-left: 4px;
   margin-top: 8px;

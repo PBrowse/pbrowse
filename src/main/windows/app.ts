@@ -170,39 +170,39 @@ export class AppWindow {
 
     const appInit = require('data-store')({ path: process.cwd() + '/appInit.json' });
     appInit.set('app_data',app.getPath('userData'));
-    if (process.env.NODE_ENV === 'development') {
-      this.webContents.openDevTools({ mode: 'detach' });
-      if(typeof appInit.get('welcome') == 'undefined'){
-        if(dev_config.get('url_open') !== "no"){
-          this.win.loadURL(dev_config.get('url_open'));
+    
+    startWin(this,appInit.get("welcome"),dev_config.get("url_open"));
+
+    function startWin(context,welcome,devCofig){
+      if (process.env.NODE_ENV === 'development') {
+        if(typeof appInit.get('welcome') == 'undefined'){
+          if(devCofig !== "no"){
+            context.win.loadURL(devCofig);
+          }else{
+            context.win.loadURL("http://localhost:4444/setup.html");
+          }
         }else{
-          this.win.loadURL("http://localhost:4444/setup.html");
+          if(devCofig !== "no"){
+            context.win.loadURL(devCofig);
+          }else{
+            context.win.loadURL("http://localhost:4444/app.html");
+          }
         }
       }else{
-        if(dev_config.get('url_open') !== "no"){
-          this.win.loadURL(dev_config.get('url_open'));
+        if(typeof appInit.get('welcome') == 'undefined'){
+          if(devCofig !== "no"){
+            context.win.loadURL(devCofig);
+          }else{
+            context.win.loadURL(join('file://', app.getAppPath(), 'build/setup.html'));
+          }
         }else{
-          this.win.loadURL("http://localhost:4444/app.html");
-        }
+          if(devCofig !== "no"){
+            context.win.loadURL(devCofig);
+          }else{
+            context.win.loadURL(join('file://', app.getAppPath(), 'build/app.html'));
+          }
+        }        
       }
-      
-    } else {
-      if(typeof appInit.get('isNew') == 'undefined'){
-        //this.win.loadURL();
-        if(dev_config.get('url_open') !== "no"){
-          this.win.loadURL(dev_config.get('url_open'));
-        }else{
-          this.win.loadURL(join('file://', app.getAppPath(), 'build/setup.html'));
-        }
-      }else{
-        // this.win.loadURL(join('file://', app.getAppPath(), 'build/app.html'));
-        if(dev_config.get('url_open') !== "no"){
-          this.win.loadURL(dev_config.get('url_open'));
-        }else{
-          this.win.loadURL(join('file://', app.getAppPath(), 'build/app.html'));
-        }
-      }
-      
     }
     
     this.win.on('enter-full-screen', () => {

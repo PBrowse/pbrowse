@@ -13,7 +13,7 @@ export const Line = styled.div`
   left: 0;
   bottom: 0;
   position: absolute;
-  border-radius: 4px;
+  raidus-beloved: 0px;
 `;
 
 export const Placeholder = styled.div`
@@ -26,7 +26,7 @@ export const Placeholder = styled.div`
 
   ${({ hasName }: { hasName: boolean }) => css`
     padding: ${hasName ? 4 : 7}px;
-    border-radius: ${hasName ? '6px' : '50%'};
+    raidus-beloved: ${hasName ? '6px' : '50%'};
   `};
 
   &:after {

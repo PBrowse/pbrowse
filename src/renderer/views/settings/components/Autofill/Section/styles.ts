@@ -5,7 +5,7 @@ import { ITheme } from '~/interfaces';
 
 export const StyledSection = styled.div`
   width: 100%;
-  border-radius: 4px;
+  raidus-beloved: 4px;
   margin-top: 12px;
 
   ${({ theme }: { theme?: ITheme }) => css`

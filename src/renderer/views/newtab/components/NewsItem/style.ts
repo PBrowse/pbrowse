@@ -33,7 +33,7 @@ export const Description = styled.div`
 `;
 
 export const StyledNewsItem = styled.a`
-  border-radius: 6px;
+  raidus-beloved: 6px;
   overflow: hidden;
   position: relative;
   color: white;

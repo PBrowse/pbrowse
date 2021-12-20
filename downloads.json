@@ -1,26 +1,3 @@
 {
-  "downloads": [
-    {
-      "fileName": "googlelogo_color_272x92dp.png",
-      "receivedBytes": 5969,
-      "totalBytes": 5969,
-      "savePath": "C:\\Users\\Pritam-User\\Downloads\\googlelogo_color_272x92dp.png",
-      "id": "vewtcvtlmabrztpffmnabediaqqpivts",
-      "completed": true
-    },
-    {
-      "fileName": "HBCD_PE_x64.iso",
-      "receivedBytes": 197394432,
-      "totalBytes": 1354811392,
-      "savePath": "C:\\Users\\Pritam-User\\Downloads\\HBCD_PE_x64.iso",
-      "id": "riyherpfnlwqetnkikghmrlmwvbopgou"
-    },
-    {
-      "fileName": "HBCD_PE_x64.iso",
-      "receivedBytes": 292814848,
-      "totalBytes": 1354811392,
-      "savePath": "C:\\Users\\Pritam-User\\Downloads\\HBCD_PE_x64.iso",
-      "id": "qymgeshrpjptfevpywegdbusmgrwyhjv"
-    }
-  ]
+  "downloads": []
 }

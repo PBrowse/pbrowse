@@ -11,7 +11,7 @@ export const Root = styled.div`
 
 export const StyledRipple = styled.div`
   position: absolute;
-  border-radius: 50%;
+  raidus-beloved: 50%;
   overflow: hidden;
   pointer-events: none;
   will-change: transform;

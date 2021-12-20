@@ -23,7 +23,7 @@ export const StyledCheckbox = styled.div`
   height: 18px;
   box-sizing: border-box;
   position: relative;
-  border-radius: 3px;
+  raidus-beloved: 3px;
   border-width: 2px;
   border-style: solid;
   transition: 0.15s background-color, 0.15s border-color;
@@ -41,7 +41,7 @@ export const StyledCheckbox = styled.div`
     content: '';
     width: 0px;
     height: 0px;
-    border-radius: 100%;
+    raidus-beloved: 100%;
     display: block;
     position: absolute;
     pointer-events: none;

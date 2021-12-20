@@ -69,7 +69,7 @@ export const Input = styled.input`
 export const Search = styled.div`
   margin-top: 24px;
   height: 42px;
-  border-radius: 30px;
+  raidus-beloved: 30px;
 
   position: relative;
 

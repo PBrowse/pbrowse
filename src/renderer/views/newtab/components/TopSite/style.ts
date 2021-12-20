@@ -91,7 +91,7 @@ export const Icon = styled.div`
       opacity: 0.3;
       background-color: ${add ? 'transparent' : 'white'};
       z-index: -1;
-      border-radius: 50%;
+      raidus-beloved: 50%;
     }
 
     &:before {

@@ -37,7 +37,7 @@ export const Dialog = styled.div`
   padding: 16px;
   left: 50%;
   top: 50%;
-  border-radius: ${DIALOG_BORDER_RADIUS}px;
+  raidus-beloved: ${DIALOG_BORDER_RADIUS}px;
   z-index: 999;
   box-shadow: ${shadows(8)};
   transition: 0.2s opacity;

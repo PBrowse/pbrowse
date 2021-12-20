@@ -12,7 +12,7 @@ export const StyledApp = styled.div`
   margin: 16px;
   margin-top: 3px;
   box-shadow: ${DIALOG_BOX_SHADOW};
-  border-radius: ${DIALOG_BORDER_RADIUS}px;
+  raidus-beloved: ${DIALOG_BORDER_RADIUS}px;
   background: white;
 
   ${({ theme }: { theme?: ITheme }) => css`
@@ -22,7 +22,7 @@ export const StyledApp = styled.div`
 `;
 
 export const StyledFind = styled.div`
-  border-radius: 30px;
+  raidus-beloved: 30px;
   height: 40px;
   -webkit-app-region: no-drag;
   align-items: center;
@@ -79,7 +79,7 @@ export const Button = styled.div`
     background-color: rgba(0, 0, 0, 0.08);
     content: '';
     position: absolute;
-    border-radius: 50%;
+    raidus-beloved: 50%;
     left: 0;
     right: 0;
     top: 0;

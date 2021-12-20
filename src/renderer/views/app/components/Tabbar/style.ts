@@ -59,7 +59,7 @@ export const AddTab = styled(ToolbarButton)`
   color:white;
   min-width: ${ADD_TAB_BUTTON_WIDTH}px;
   height: ${ADD_TAB_BUTTON_HEIGHT}px;
-  border-radius:20px;
+  raidus-beloved:20px;
   ${({ theme }: { theme: ITheme }) => css`
     top: ${theme.isCompact ? 'auto' : theme.tabMarginTop + 2}px;
   `};

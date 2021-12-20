@@ -86,7 +86,7 @@ export const IconItem = styled.div`
   opacity: 0.8;
   z-index: 3;
   cursor: pointer;
-  border-radius: 4px;
+  raidus-beloved: 4px;
   position: relative;
 
   &:first-child {

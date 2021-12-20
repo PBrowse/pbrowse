@@ -19,7 +19,7 @@ export const Container = styled.div`
 `;
 
 export const Circle = styled.div`
-  border-radius: 100%;
+  raidus-beloved: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -48,7 +48,7 @@ export const Circle = styled.div`
           : theme.dark
           ? 'rgba(255, 255, 255, 0.54)'
           : 'rgba(0, 0, 0, 0.54)'};
-      border-radius: 100%;
+      raidus-beloved: 100%;
     }
   `}
 `;
@@ -64,7 +64,7 @@ export const Root = styled.div`
   }
   &::before {
     content: '';
-    border-radius: 100%;
+    raidus-beloved: 100%;
     width: 100%;
     height: 100%;
     position: absolute;

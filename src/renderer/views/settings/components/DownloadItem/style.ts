@@ -6,7 +6,7 @@ import { ITheme } from '~/interfaces';
 export const StyledDownloadItem = styled.div`
   height: 64px;
   background-color: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
+  raidus-beloved: 8px;
   display: flex;
   align-items: center;
   position: relative;
@@ -45,13 +45,13 @@ export const SecondaryText = styled.div`
 export const Progress = styled.div`
   height: 100%;
   background-color: ${BLUE_500};
-  border-radius: 16px;
+  raidus-beloved: 16px;
 `;
 
 export const ProgressBackground = styled.div`
   height: 5px;
   background-color: rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
+  raidus-beloved: 16px;
   overflow: hidden;
   margin-top: 4px;
   flex: 1;
@@ -95,7 +95,7 @@ export const MoreButton = styled.div`
 
   opacity: 0.54;
   margin-right: 8px;
-  border-radius: 6px;
+  raidus-beloved: 6px;
   transition: 0.1s background-color;
 
   ${({ theme }: { theme?: ITheme }) => css`

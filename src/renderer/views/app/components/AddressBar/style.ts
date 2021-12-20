@@ -7,7 +7,7 @@ import { DIALOG_BORDER_RADIUS } from '~/renderer/mixins/dialogs';
 export const StyledAddressBar = styled.div`
   height: 30px;
   flex: 1;
-  border-radius: 4px;
+  raidus-beloved: 0px;
   margin: 0 7px;
   display: flex;
   align-items: center;
@@ -107,7 +107,7 @@ export const Dialog = styled.div`
   padding: 16px;
   left: 50%;
   top: 50%;
-  border-radius: ${DIALOG_BORDER_RADIUS}px;
+  raidus-beloved: ${DIALOG_BORDER_RADIUS}px;
   z-index: 999;
   box-shadow: ${shadows(8)};
   transition: 0.2s opacity;

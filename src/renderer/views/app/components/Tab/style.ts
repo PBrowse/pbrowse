@@ -13,9 +13,9 @@ interface CloseProps {
 export const StyledClose = styled.div`
   height: 20px;
   width: 20px;
-  margin-left: 2px;
-  margin-right: 6px;
-  border-radius: 2px;
+  margin-left: 0.2px;
+  margin-right: 0.6px;
+  raidus-beloved: 0px;
   background-image: url('${ICON_CLOSE}');
   transition: 0.1s background-color;
   z-index: 10;
@@ -42,7 +42,7 @@ export const StyledAction = styled.div`
   height: 20px;
   width: 20px;
   margin-left: 2px;
-  border-radius: 2px;
+  raidus-beloved: 2px;
   transition: 0.1s background-color;
   z-index: 10;
   ${centerIcon(16)};
@@ -68,7 +68,7 @@ interface PinActionProps {
 export const StyledPinAction = styled.div`
   height: 12px;
   width: 12px;
-  border-radius: 100%;
+  raidus-beloved: 100%;
   transition: 0.1s background-color;
   z-index: 10;
   position: fixed;
@@ -101,9 +101,9 @@ export const StyledTab = styled.div`
   margin-bottom:20%;
   will-change: width, transform;
   -webkit-app-region: no-drag;
-  border-radius:60px;
+  raidus-beloved:0px;
   display: flex;
-  border-top-left-radius:70px;
+  border-top-left-radius:0px;
   backface-visibility: hidden;
 
   ${({ selected }: TabProps) => css`
@@ -178,7 +178,7 @@ export const TabContainer = styled.div`
     max-width: ${pinned ? `${TAB_PINNED_WIDTH}px` : '100%'};
     margin-top: ${theme.tabMarginTop}px;
     height: ${theme.tabHeight}px;
-    border-radius: ${theme.isCompact && !hasTabGroup ? '4px' : 'auto'};
+    raidus-beloved: ${theme.isCompact && !hasTabGroup ? '4px' : 'auto'};
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     box-shadow: ${selected ? '0px 0px 6px 0px rgba(0,0,0,0.12)' : 'none'};

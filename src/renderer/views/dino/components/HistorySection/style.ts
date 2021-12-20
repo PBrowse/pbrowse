@@ -5,7 +5,7 @@ export const EmptySection = styled.div`
   margin-top: 16px;
   padding: 0px 0px 8px 0px;
   overflow: hidden;
-  border-radius: 8px;
+  raidus-beloved: 8px;
 
   &:first-child {
     margin-top: 0;
