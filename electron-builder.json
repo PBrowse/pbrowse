@@ -9,7 +9,7 @@
     "license": "LICENSE"
   },
   "win": {
-    "target": "msi",
+    "target": "nsis",
     "icon": "static/icons/icon.ico",
     "legalTrademarks": "PreknowledgeX",
     "publisherName":"PxProjs",
