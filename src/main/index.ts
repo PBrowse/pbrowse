@@ -64,6 +64,17 @@ app.on('window-all-closed', () => {
   }
 });
 
+const fs = require('fs');
+const modsFolder = `${app.getPath('userData')}/mods`;
+
+if (fs.existsSync(modsFolder)) {
+  fs.readdirSync(modsFolder).forEach(file => {
+    console.log(file);
+  });
+}else{
+  
+}
+
 ipcMain.on('get-webcontents-id', (e) => {
   e.returnValue = e.sender.id;
 });
@@ -79,8 +90,10 @@ const agent = new https.Agent({
 ipcMain.handle('ipc-signin', async (event,id) => {
   const user_profile = require('data-store')({ path:app.getPath('userData') + '/uniq_id.json' });
   user_profile.set('uniq_id',id);
-  return "your work done";
+  //return "your work done";
   init_account();
+  const appInit = require('data-store')({ path: process.cwd() + '/appInit.json' });
+  appInit.set("welcome","false");
 })
 
 ipcMain.handle('ipc-userinfo', async (event,data) => {
@@ -100,7 +113,11 @@ init_account();
 
 function init_account(){
   const user_profile = require('data-store')({ path:app.getPath('userData') + '/uniq_id.json' });
-  if(user_profile.get('uniq_id') !== undefined){
+  if(user_profile.get('uniq_id') == "skipped"){
+    user_profile.set('user_name',"You are not signed in");
+    user_profile.set('user_email',"@");
+    user_profile.set('user_insider',"dHJ1ZQ==");
+  }else if(user_profile.get('uniq_id') !== undefined){
     axios.get(`https://pbrowse-app-api.preknowledgeweb.repl.co/Api.php?api=user&token_=${user_profile.get('uniq_id')}`, { httpsAgent: agent })
     .then(function (response) {
       user_profile.set('user_name',response.data.user_name);
@@ -108,19 +125,19 @@ function init_account(){
       user_profile.set('user_insider',response.data.user_insider);
     })
   }
-  if(user_profile.get("user_insider") == false){
-   const answer = dialog.showMessageBoxSync(null, {
-      type: 'question',
-      title: `Quit ${app.name}?`,
-      message: `Quit ${app.name}?`,
-      detail: `Oh no ! You are not in insider updates`,
-      buttons: ['Yes'],
-    });
+  // if(user_profile.get("user_insider") == false){
+  //  const answer = dialog.showMessageBoxSync(null, {
+  //     type: 'question',
+  //     title: `Quit ${app.name}?`,
+  //     message: `Quit ${app.name}?`,
+  //     detail: `Oh no ! You are not in insider updates`,
+  //     buttons: ['Yes'],
+  //   });
 
-    if (answer) {
-      app.quit();
-    }  
-  }
+  //   if (answer) {
+  //     app.quit();
+  //   }  
+  // }
 }
 
 ipcMain.on('get-window-id', (e) => {

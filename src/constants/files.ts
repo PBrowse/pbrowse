@@ -2,9 +2,9 @@ import { DEFAULT_SETTINGS } from './settings';
 
 export const DIRECTORIES = ['adblock', 'extensions', 'storage'];
 
-export const WEBUI_PROTOCOL = 'pb';
+export const WEBUI_PROTOCOL = 'px';
 
-export const ERROR_PROTOCOL = 'p-error';
+export const ERROR_PROTOCOL = 'x-error';
 
 export const NETWORK_ERROR_HOST = 'network-error';
 

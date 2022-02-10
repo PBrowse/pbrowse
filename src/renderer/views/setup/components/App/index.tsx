@@ -71,11 +71,18 @@ const Setup = observer(() => {
 
   const [loginm, setloginm] = React.useState(false);
 
-  const loginVerify = () => {
-    console.log(email);
-    console.log(password);
-    setloginm(true);
-    handleLogin();
+  const loginVerify = (idk) => {
+    if(idk == "no"){
+      setloginm(true);
+      handleLogin();
+    }
+    if(idk == "skip"){
+      setloginm(true);
+      const appInit = require('data-store')({ path: process.cwd() + '/appInit.json' });
+      appInit.set("welcome","false");
+      ipcRenderer.invoke('ipc-signin',"skipped");
+      window.location.href = "app.html";
+    }
   };
   const handleLogin = () => {
     axios.get(`https://pbrowse-app-api.preknowledgeweb.repl.co/Api.php?api=login&user_email=${email}&user_pass=${password}`)
@@ -333,7 +340,7 @@ const Setup = observer(() => {
       </Backdrop>
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '25vh', overflow:'hidden'}}>
           <img src={'https://www.pbrowse.ml/webres/icon.ico'} style={{ width:'70px' , height:'70px' }}></img>
-          <h1>Please Sign-In to verify if you are an Insider</h1>
+          <h1>Please Sign-In Note:(Sign-in Services may not work if PBrowse services are shutted down)</h1>
         </div> 
         <div style={{ overflow:'auto' , display: 'flex',  justifyContent:'center', alignItems:'center',}}>
           <TextField id="email" label="Email:" variant="standard" onChange={setEmailInput}/>
@@ -350,7 +357,8 @@ const Setup = observer(() => {
         </div>
         <br/>
         <div style={{ overflow:'auto' , display: 'flex',  justifyContent:'center', alignItems:'center',}}>
-        <Button variant="contained" onClick={(e) => loginVerify()} style={{ alignContent:'center' }}>Next</Button>
+          <Button variant="contained" onClick={(e) => loginVerify("no")} style={{ alignContent:'center' }}>Next</Button>
+          <Button variant="contained" onClick={(e) => loginVerify("skip")} style={{ alignContent:'center' }}>Skip iT</Button>
         </div>
       </ElseIf>
     </If>

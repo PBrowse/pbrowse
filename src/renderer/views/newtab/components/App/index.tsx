@@ -81,6 +81,7 @@ export default observer(() => {
     <ThemeProvider theme={{ ...store.theme }} fullSize={store.fullSizeImage}>
     <Image src={store.imageVisible ? store.image : ''}></Image>
     <Content>
+      
       <AppBar position="fixed">
         <Toolbar>
           <IconButton
@@ -92,7 +93,7 @@ export default observer(() => {
           >
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-           {Strings.SPEED_DIAL}
+           {Strings.SPEED_DIAL} Please Note : PBrowse is going to be discountinued Please Try xBrowse
           </Typography>
           <IconButton
             size="large"
@@ -127,8 +128,9 @@ export default observer(() => {
         </Toolbar>
         <Preferences />
       </AppBar>
+      <h3></h3>
       {store.topSitesVisible && <TopSites></TopSites>}
-      {store.newsBehavior && <News></News>}
+      {/*{store.newsBehavior && <News></News>}*/}
       <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
         <Toolbar>
           {/*<IconItem

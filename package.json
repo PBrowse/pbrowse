@@ -1,9 +1,9 @@
 {
-  "name": "pbrowse-insider",
-  "version": "16.10.1",
+  "name": "PBrowse",
+  "version": "17.20.0",
   "sideEffects": false,
   "description": "material fast browser",
-  "license": "Apache2.0-License",
+  "license": "Apache20-License",
   "keywords": [
     "web-browser",
     "material",

@@ -1,6 +1,6 @@
 {
-  "appId": "org.p.browse",
-  "productName": "PBrowse",
+  "appId": "org.px.browse",
+  "productName": "PxBrowse",
   "nsis": {
     "include": "static/installer.nsh",
     "oneClick": false,
@@ -11,8 +11,8 @@
   "win": {
     "target": "msi",
     "icon": "static/icons/icon.ico",
-    "legalTrademarks": "PreknowledgeInc",
-    "publisherName":"PreknowledgeInc",
+    "legalTrademarks": "PreknowledgeX",
+    "publisherName":"PxProjs",
     "certificateFile":"certs/cert.pfx",
     "certificatePassword":"my_passowrd"
   },

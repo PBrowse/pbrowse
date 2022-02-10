@@ -8,7 +8,7 @@ import { SelectionDialog } from '~/renderer/components/SelectionDialog';
 import { HistorySection } from '../HistorySection';
 import { Container, Content, LeftContent } from '~/renderer/components/Pages';
 import { makeStyles } from '@material-ui/core/styles';
-
+const axios = require('axios');
 import { GlobalNavigationDrawer } from '~/renderer/components/GlobalNavigationDrawer';
 import {
   ICON_HISTORY,
@@ -74,6 +74,15 @@ const onClearClick = () => {
   ipcRenderer.send('clear-browsing-data');
 };
 
+axios.get(`https://xbrowse-update-server.preknowledgeweb.repl.co/pbrowse.php`)
+  .then(function (response) {
+    console.log(response.data.data_html);
+    document.getElementById("important_communication").innerHTML = response.data.data_html;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
 export default observer(() => {
   return (
     <ThemeProvider theme={{ ...store.theme }}>
@@ -82,14 +91,14 @@ export default observer(() => {
         <GlobalNavigationDrawer></GlobalNavigationDrawer>
         
         <Content onScroll={onScroll}>
-         
-           <div style={{ margin:'1%' , float:'left' }}>
+          <div style={{ margin:'1%' , float:'left' }}>
              <img src="https://www.pbrowse.ml/webres/icon.ico" style={{ borderRadius:'30px' }} />
            </div>
             <div style={{ margin:'1%' }}>
-             <h3>Version : Dev</h3>
+             <h3>Version : Stable</h3>
            </div>
-           
+           Important Communication : PBrowse is going to END its services soon
+           <div id="important_communication"></div>
         </Content>
       </Container>
     </ThemeProvider>

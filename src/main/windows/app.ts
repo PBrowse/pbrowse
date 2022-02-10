@@ -266,7 +266,7 @@ export class AppWindow {
     this.win.setTitle(
       selected.title.trim() === ''
         ? app.name
-        : `${selected.title} - PBrowse Insider`,
+        : `${selected.title} - PBrowse (17) Patch W1`,
     );
   }
 }
