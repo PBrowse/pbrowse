@@ -1,3 +1,4 @@
+# Warrning : PBrowse is discountinued Please Try xBrowse : https://github.com/PreknowledgexProjectjs/xBrowse-upcoming
 # PBrowse Open Source Code
 <p align="center">
   <a href="https://pbrowse.ml"><img src="static/icons/icon.png" width="256"></a>
